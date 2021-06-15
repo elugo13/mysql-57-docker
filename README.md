@@ -11,7 +11,7 @@ Repositorio para crear un contenedor de MySQL en Docker.
 
 En una terminal abrir la ubicación del archivo **docker-compose.yml** y ejecutar
 
-    your-user@your-pc:~$ docker-compose up -d
+    docker-compose up -d
 
 _Salida_:
 
@@ -39,7 +39,7 @@ _Salida_:
 
 Para poder conectarnos a la instancia, debemos obtener su **ip**. Para esto debemos ingresar al contenedor ejecutando esta instrucción:
 
-    your-user@your-pc:~$ docker exec -it mysql_test_db bash
+    docker exec -it mysql_test_db bash
 
 _Salida_:
 
@@ -59,7 +59,7 @@ Terminamos la sesión del contenedor presionando "ctrl+d"
 
 Ahora hacemos ping a esta ip para comprobar si podemos alcanzarla:
 
-    your-user@your-pc:~$ ping 127.0.0.11
+    ping 127.0.0.11
 
 _Salida_:
 
