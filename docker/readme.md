@@ -4,33 +4,34 @@ Para utilizar docker-compose, copia el archivo **template.docker-compose.yml** y
 
 Una vez que tenamos el archivo para docker-compose, lo editamos y agregamos los datos para nuestro contenedor.
 
-_docker-compose.yml_
+## Campos a editar en _docker-compose.yml_:
+
+container_name: Para indicar el nombre que tendrá el contenedor al crearse. Ejemplo:
+
 ```yaml
-version: '3.3'
-services:
-    mysql:
-        image: mysql:5.7
-        container_name: <nombre_contenedor>
-        command: --default-authentication-plugin=mysql_native_password
-        restart: always
-        ports:
-            - "33060:3306"
-        expose:
-            - "3306"
-        environment:
-            MYSQL_ROOT_PASSWORD: <contrasena_root>
-            MYSQL_DATABASE: <nombre_bd>
-            MYSQL_USER: <usuario_bd>
-            MYSQL_PASSWORD: <contrasena_usuario_bd>
-        volumes:
-            - schemas:/var/lib/mysql
-        networks:
-            mysql_host:
-                aliases:
-                    - mysql_net
-networks:
-    mysql_host:
-        driver: bridge
-volumes:
-    schemas:
+container_name: mi_contenedor_mysql
+```
+
+ports: Lista de puertos a usar. El siguiente ejemplo muestra como redireccionar a un puerto del anfitrión (host):
+
+```yaml
+ports:
+    - "33060:3306" # puerto_anfitrion (tu pc):puerto_instancia (dentro de docker).
+```
+
+expose: Lista de puertos de la instancia que serán expuestos.
+
+```yaml
+expose:
+    - "3306" # Puerto de la instancia.
+```
+
+environment: Variables de entorno para la creación del contenedor.
+
+```yaml
+environment:
+    MYSQL_ROOT_PASSWORD: <contrasena_root> # Contraseña para el usuario "root".
+    MYSQL_DATABASE: <nombre_bd> # "Nombre de la BD que será creada en el contenedor."
+    MYSQL_USER: <usuario_bd> # Nombre del usuario que será creado y se le asignará permisos de acceso a la BD creada en el contenedor.
+    MYSQL_PASSWORD: <contrasena_usuario_bd> # Contraseña para el usuario creado para la BD del contenedor.
 ```
