@@ -1,4 +1,4 @@
-# Cómo usar
+# Preparar archivo "docker-compose"
 
 Para utilizar docker-compose, copia el archivo **template.docker-compose.yml** y renómbralo a **docker-compose.yml**.
 
