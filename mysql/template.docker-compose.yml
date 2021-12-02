@@ -16,12 +16,5 @@ services:
             MYSQL_PASSWORD: 
         volumes:
             - schemas:/var/lib/mysql
-        networks:
-            mysql_host:
-                aliases:
-                    - mysql_net
-networks:
-    mysql_host:
-        driver: bridge
 volumes:
     schemas:
