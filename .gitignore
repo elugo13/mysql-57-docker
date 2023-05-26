@@ -1,3 +1,4 @@
 **/schemas
 **/docker-compose.yml
 **/*copy*
+.DS_Store
